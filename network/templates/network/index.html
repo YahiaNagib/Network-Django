@@ -1,0 +1,81 @@
+{% extends "network/layout.html" %}
+
+{% block body %}
+    
+    {% if main_page %}
+        {% if user.is_authenticated %}
+            <form class="mb-4" action="{% url 'save-post' %}" method="POST">
+                {% csrf_token %}
+                <h3>New Post</h3>
+                <textarea name="content" cols="50" rows="5" class="form-control mb-3 post-content-area" required></textarea>
+                <input type="submit" value= "Post" class="btn btn-primary submit-btn">
+            </form>
+        {% endif %}
+        {% if posts.count == 0 %}
+            <h1>No posts yet</h1>
+        {% else %}
+            <h1>All Posts</h1>
+        {% endif %}
+    {% else %}
+        {% if posts|length == 0 %}
+            <h1>No posts yet</h1>
+        {% else %}
+            <h1>Following users</h1>
+        {% endif %}
+    {% endif %}
+
+    {% for post in posts %}
+
+        <div class="post">
+            <div class="post-owner">
+                <h2 class="post-username"> <a class="post-username" href="{% url 'profile' post.user.id %}">{{ post.user.username }}</a></h2>
+                <p class="user-email"> {{ post.user.email }}</p>
+                <p class="post-date">{{ post.date|date:"M d, f A" }}</p>
+            </div>
+            {% if user == post.user %}
+                <button class="btn btn-link edit-btn">Edit</button>
+                <form class="edit-form" action="{% url 'save-post' %}" method="POST">
+                    {% csrf_token %}
+                    <input name="id" value="{{post.id}}" hidden>
+                    <textarea name="content" cols="50" rows="5" class="form-control mb-3 post-content-area" required>{{post.content}}</textarea>
+                    <input type="submit" value="Edit" class="btn btn-primary submit-btn">
+                </form>
+            {% endif %}
+            
+            <p class="post-content">{{ post.content }}</p>
+            <p class="post-like">
+                <input class="post-id" name="id" value="{{post.id}}" hidden>
+
+                {% if not user.is_authenticated %}
+                    <i class="far fa-heart"></i>
+                {% else %}
+                    {%if user in post.likes.all%}
+                        <i class="fas fa-heart like-icon liked"></i>
+                    {%else%}
+                        <i class="far fa-heart like-icon"></i>
+                    {%endif%}
+                {% endif %}
+                <span class="post-likes-number"> {{ post.likes.all.count }} </span>
+            </p>
+        </div>
+        
+        {% endfor %}
+        <nav aria-label="Page navigation example" class="post-pagination">
+            <ul class="pagination">
+                {% if current_page != 1 %}
+                <li class="page-item"><a class="page-link" href="?page={{current_page|add:-1}}">Previous</a></li>
+                {% endif %}
+
+                {% comment %}
+                    {% for i in pages_count %}
+                    <li class="page-item"><a class="page-link" href="?page={{i}}">{{ i }}</a></li>
+                    {% endfor %}
+                {% endcomment %}
+                
+                {% if current_page != total_pages %}
+                <li class="page-item"><a class="page-link" href="?page={{current_page|add:1}}">Next</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+        
+{% endblock %}

@@ -1,0 +1,101 @@
+
+.body {
+    padding: 10px;
+}
+
+.site-container {
+    width: 65%;
+    padding-top: 20px;
+    margin: 0 auto;
+}
+
+/* #F7F7F7 */
+
+
+/* Add Post  */
+.post-content-area {
+    outline: none;
+    resize: none;
+}
+.submit-btn {
+    display: block;
+}
+/* end add post */
+
+/* Posts */
+.post {
+    border: 1px solid rgba(0,0,0,0.3);
+    padding: 15px;
+    transition: all 0.2s;
+}
+
+.post-owner {
+    display: flex;
+    align-items: center;
+}
+
+.post-username {
+    margin-right: 10px;
+}
+
+.user-email, .post-date {
+    margin: 0;
+    margin-right: 15px;
+}
+
+.post-date {
+    padding: 0;
+}
+
+.post:hover {
+    background-color: #F7F7F7;
+}
+
+.post-username {
+    color: #000;
+}
+
+.post-username:hover {
+    color: #000;
+    text-decoration: none;
+}
+
+.post-like {
+    margin-bottom: 0;
+}
+
+.liked {
+    color: red;
+}
+
+/* end posts */
+
+
+/* edit-form */
+.edit-form {
+    display: none;
+}
+
+.edit-btn {
+    padding: 0;
+}
+
+/* end edit form */
+
+
+/* profile */
+.profile-info {
+    display: flex;
+    align-items: center;
+}
+
+.profile-info span {
+    font-weight: normal;
+    font-size: medium;
+}
+
+.profile .user-email {
+    margin-right: auto;
+}
+
+/* end profile */
