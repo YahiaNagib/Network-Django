@@ -1,106 +1,111 @@
-
 .body {
-    padding-top: 55px;
+  padding-top: 55px;
 }
 
 .site-container {
-    width: 65%;
-    padding-top: 20px;
-    margin: 0 auto;
+  width: 65%;
+  padding-top: 20px;
+  margin: 0 auto;
 }
 
 /* #F7F7F7 */
 
-
 /* Add Post  */
 .post-content-area {
-    outline: none;
-    resize: none;
+  outline: none;
+  resize: none;
 }
 .submit-btn {
-    display: block;
+  display: block;
 }
 /* end add post */
 
 /* Posts */
 .post {
-    border: 1px solid rgba(0,0,0,0.3);
-    border-bottom: none;
-    padding: 15px;
-    transition: all 0.2s;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-bottom: none;
+  padding: 15px;
+  transition: all 0.2s;
 }
 
-.post:last-of-type { 
-    border-bottom: 1px solid rgba(0,0,0,0.3) !important;
+.post:last-of-type {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3) !important;
 }
 
 .post-owner {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 600px) {
+
+    .post-owner {
+        display: grid;
+        grid-template-columns: 30% 30% 40%;
+    }
 }
 
 .post-username {
-    margin-right: 10px;
+  margin-right: 10px;
 }
 
-.user-email, .post-date {
-    margin: 0;
-    margin-right: 15px;
+.user-email,
+.post-date {
+  margin: 0;
+  margin-right: 15px;
 }
 
 .post-date {
-    padding: 0;
+  padding: 0;
 }
 
 .post:hover {
-    background-color: #F7F7F7;
+  background-color: #f7f7f7;
 }
 
 .post-username {
-    color: #000;
+  color: #000;
 }
 
 .post-username:hover {
-    color: #000;
-    text-decoration: none;
+  color: #000;
+  text-decoration: none;
 }
 
 .post-like {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .liked {
-    color: red;
+  color: red;
 }
 
 /* end posts */
 
-
 /* edit-form */
 .edit-form {
-    display: none;
+  display: none;
 }
 
 .edit-btn {
-    padding: 0;
+  padding: 0;
 }
 
 /* end edit form */
 
-
 /* profile */
 .profile-info {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .profile-info span {
-    font-weight: normal;
-    font-size: medium;
+  font-weight: normal;
+  font-size: medium;
 }
 
 .profile .user-email {
-    margin-right: auto;
+  margin-right: auto;
 }
 
 /* end profile */
