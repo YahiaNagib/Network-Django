@@ -7,6 +7,13 @@
   padding-top: 20px;
   margin: 0 auto;
 }
+@media (max-width: 600px) {
+    .site-container {
+        width: 80%;
+        padding-top: 20px;
+        margin: 0 auto;
+      }
+}
 
 /* #F7F7F7 */
 
@@ -41,7 +48,15 @@
 
     .post-owner {
         display: grid;
-        grid-template-columns: 30% 30% 40%;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 40px 20px;
+    }
+    .post-username{
+        grid-row: 1 / 3;
+    }
+    .user-email{}
+    .post-date{
+        grid-column: 2 / 3;
     }
 }
 
