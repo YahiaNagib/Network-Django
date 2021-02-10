@@ -13,32 +13,7 @@ from .models import User, Post, Comment
 
 
 def index(request):
-
-    # user = User.objects.filter(username="sara").first()
-    # for follower in user.followers.all():
-    #     print(follower.username)
-
-    # for follow in user.followings.all():
-    #     print(follow.username)
-
-    # if not request.user.is_authenticated:
-
-    #     context = {
-    #         "posts": p.page(current_page).object_list,
-    #         "pages_count": range(1, p.num_pages + 1),
-    #         "total_pages": p.num_pages,
-    #         "current_page": current_page,
-    #         "main_page": True,
-    #     }
-    #     return render(request, "network/index.html", context)
-
-    # followed_users = request.user.followings.all()
-    # follow_posts = []
-
-    # for user in followed_users:
-    #     for post in user.posts.all():
-    #         follow_posts.append(post)
-
+    
     posts = Post.objects.all().order_by("-date")
     p = Paginator(posts, 10)
 
