@@ -1,5 +1,5 @@
 .body {
-  padding-top: 55px;
+  padding-top: 0px;
 }
 
 .site-container {
@@ -45,8 +45,8 @@
 }
 
 .user-image {
-  width: 5%;
-  height: 5%;
+  height: 50px;
+  width: 50px;
   border-radius: 50%;
   margin-right: 10px;
 }
@@ -54,16 +54,24 @@
 @media (max-width: 600px) {
 
     .post-owner {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: 40px 20px;
+        display: flex;
+        flex-wrap: wrap;
+        /* grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 40px 20px; */
     }
-    .post-username{
+
+    .user-image {
+      height: 50px;
+      width: 50px;
+      /* grid-row: 1 / 3; */
+    }
+
+    /* .post-username{
         grid-row: 1 / 3;
     }
     .post-date{
         grid-column: 2 / 3;
-    }
+    } */
 }
 
 .post-username {
@@ -121,8 +129,8 @@
 }
 
 .profile-image {
-  height: 10%;
-  width: 10%;
+  height: 100px;
+  width: 100px;
   margin-right: 10px;
   border-radius: 50%;
 }

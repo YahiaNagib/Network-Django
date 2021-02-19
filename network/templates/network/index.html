@@ -35,7 +35,7 @@
             </div>
             {% if user == post.user %}
                 <button class="btn btn-link edit-btn">Edit</button>
-                <form class="edit-form" action="{% url 'save-post' %}" method="POST">
+                <form class="edit-form my-3" action="{% url 'save-post' %}" method="POST">
                     {% csrf_token %}
                     <input name="id" value="{{post.id}}" hidden>
                     <textarea name="content" cols="50" rows="5" class="form-control mb-3 post-content-area" required>{{post.content}}</textarea>
@@ -43,7 +43,7 @@
                 </form>
             {% endif %}
             
-            <p class="post-content">{{ post.content }}</p>
+            <p class="post-content mt-2">{{ post.content }}</p>
             <p class="post-like">
                 <input class="post-id" name="id" value="{{post.id}}" hidden>
 
