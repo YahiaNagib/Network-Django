@@ -6,6 +6,7 @@ editBtns.forEach(btn => btn.addEventListener("click", () => {
 
     const postContent = btn.parentElement.parentElement.querySelector(".post-content");
     const editForm = btn.parentElement.parentElement.querySelector(".edit-form");
+    btn.parentElement.parentElement.querySelector(".edit-menu").classList.toggle("visible");
     // btn.style.display = "none";
     editForm.style.display = "block";
     postContent.style.display = "none";
@@ -36,7 +37,6 @@ document.querySelectorAll(".edit-form").forEach(editForm => {
             .then(result => {
                 editForm.style.display = "none";
                 postContent.style.display = "block";
-                // this.parentElement.querySelector(".edit-btn").style.display = "block";
                 postContent.innerHTML = result["message"];
             });
 
@@ -74,6 +74,7 @@ document.querySelectorAll(".like-icon").forEach(likeBtn => {
 
 });
 
+// To show the edit menu when clicking on the menu button
 document.querySelectorAll(".edit-menu-btn").forEach(btn => {
     btn.addEventListener('click', function(){
         btn.parentElement.querySelector(".edit-menu").classList.toggle("visible");
