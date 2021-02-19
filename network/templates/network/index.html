@@ -34,7 +34,6 @@
                 <p class="post-date">{{ post.date|date:"M d, f A" }}</p>
             </div>
             {% if user == post.user %}
-                <button class="btn btn-link edit-btn">Edit</button>
                 <form class="edit-form my-3" action="{% url 'save-post' %}" method="POST">
                     {% csrf_token %}
                     <input name="id" value="{{post.id}}" hidden>
@@ -42,8 +41,17 @@
                     <input type="submit" value="Edit" class="btn btn-primary submit-btn">
                 </form>
             {% endif %}
-            
-            <p class="post-content mt-2">{{ post.content }}</p>
+                
+            <div class="edit-menu-btn"> <span> ... </span> </div>
+            <ul class="edit-menu">
+                {% if user == post.user %}
+                    <li class="edit-menu-item edit-btn">Edit</li>
+                    <li class="edit-menu-item">Delete</li>
+                {% endif %}
+                <li class="edit-menu-item">Save</li>
+                <li class="edit-menu-item">Report</li>
+            </ul>
+            <p class="post-content mt-3">{{ post.content }}</p>
             <p class="post-like">
                 <input class="post-id" name="id" value="{{post.id}}" hidden>
 

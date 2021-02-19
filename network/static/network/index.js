@@ -4,9 +4,9 @@ const editBtns = document.querySelectorAll(".edit-btn");
 // when clicking an edit button, hide and display some contents of the post
 editBtns.forEach(btn => btn.addEventListener("click", () => {
 
-    const postContent = btn.parentElement.querySelector(".post-content");
-    const editForm = btn.parentElement.querySelector(".edit-form");
-    btn.style.display = "none";
+    const postContent = btn.parentElement.parentElement.querySelector(".post-content");
+    const editForm = btn.parentElement.parentElement.querySelector(".edit-form");
+    // btn.style.display = "none";
     editForm.style.display = "block";
     postContent.style.display = "none";
 
@@ -18,7 +18,7 @@ document.querySelectorAll(".edit-form").forEach(editForm => {
 
     editForm.onsubmit = function () {
         const csrftoken = getCookie('csrftoken');
-        const postContent = this.parentElement.querySelector(".post-content");
+        const postContent = this.parentElement.parentElement.querySelector(".post-content");
         fetch('edit-post', {
             method: 'POST',
             headers: {
@@ -36,7 +36,7 @@ document.querySelectorAll(".edit-form").forEach(editForm => {
             .then(result => {
                 editForm.style.display = "none";
                 postContent.style.display = "block";
-                this.parentElement.querySelector(".edit-btn").style.display = "block";
+                // this.parentElement.querySelector(".edit-btn").style.display = "block";
                 postContent.innerHTML = result["message"];
             });
 
@@ -73,6 +73,16 @@ document.querySelectorAll(".like-icon").forEach(likeBtn => {
     });
 
 });
+
+document.querySelectorAll(".edit-menu-btn").forEach(btn => {
+    btn.addEventListener('click', function(){
+        btn.parentElement.querySelector(".edit-menu").classList.toggle("visible");
+    });
+});
+
+
+
+
 
 // Copied from Django documentaion
 // used to return the csrf token for the forms

@@ -1,9 +1,10 @@
+
 .body {
   padding-top: 0px;
 }
 
 .site-container {
-  width: 65%;
+  width: 55%;
   padding-top: 20px;
   margin: 0 auto;
 }
@@ -29,6 +30,7 @@
 
 /* Posts */
 .post {
+  position: relative;
   border: 1px solid rgba(0, 0, 0, 0.3);
   border-bottom: none;
   padding: 15px;
@@ -86,10 +88,6 @@
 
 .post-date {
   padding: 0;
-}
-
-.post:hover {
-  background-color: #f7f7f7;
 }
 
 .post-username {
@@ -150,3 +148,55 @@
 .helptext {
   display: none;
 }
+
+/* edit menu */
+
+.edit-menu-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+}
+
+.edit-menu-btn span {
+  font-size: 30px;
+  line-height: 0;
+  position: absolute;
+  top: 7px;
+  left: 7px;
+  user-select: none;
+}
+
+.edit-menu-btn:hover {
+  cursor: pointer;
+  background-color: gainsboro;
+}
+
+
+.edit-menu {
+  padding: 5px;
+  display: none;
+  width: 200px;
+  border-radius: 4px;
+  list-style: none;
+  position: absolute;
+  top: 55px;
+  right: 5px;
+}
+
+.visible {
+  display: block;
+  border: 1px solid #f7f7f7;
+  box-shadow: -10px -2px 5px rgb(238, 231, 231);
+}
+
+.edit-menu-item:hover {
+  cursor: pointer;
+  background-color: #f7f7f7;
+}
+/* end edit menu */

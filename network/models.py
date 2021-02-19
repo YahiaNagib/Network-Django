@@ -9,7 +9,7 @@ class User(AbstractUser):
     join_date = models.DateTimeField(default=timezone.now)
     image = models.ImageField(default="default.jpg", upload_to="profile_pics")
 
-    def save(self):
+    def save(self, *args, **kwargs):
         super().save()
 
         img = Image.open(self.image.path)
