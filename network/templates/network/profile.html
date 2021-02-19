@@ -4,21 +4,22 @@
 
 <div class="profile mb-4">
     <div class="profile-info mb-2">
-    <h1 class="mr-4">{{ required_user.username }}</h1>
-    <h4 class="user-email">{{ required_user.email }}</h4>
-    {% if user.username != name %}
-        {% if is_follow %}
-        <form action="{% url 'follow' id %}" method="POST">
-            {% csrf_token %}
-            <input type="submit" class="btn btn-primary" value="Unfollow">
-        </form>
-        {% else %}
-        <form action="{% url 'follow' id %}" method="POST">
-            {% csrf_token %}
-            <input type="submit" class="btn btn-primary" value="Follow">
-        </form>
+        <img class="profile-image" src={{required_user.image.url}} alt="img">
+        <h1 class="mr-4">{{ required_user.username }}</h1>
+        <h4 class="user-email">{{ required_user.email }}</h4>
+        {% if user.username != name %}
+            {% if is_follow %}
+            <form action="{% url 'follow' id %}" method="POST">
+                {% csrf_token %}
+                <input type="submit" class="btn btn-primary" value="Unfollow">
+            </form>
+            {% else %}
+            <form action="{% url 'follow' id %}" method="POST">
+                {% csrf_token %}
+                <input type="submit" class="btn btn-primary" value="Follow">
+            </form>
+            {% endif %}
         {% endif %}
-    {% endif %}
     </div>
     <span> Joined on {{ required_user.join_date|date:"M d, Y" }} </span>
     <div class="profile-info mt-2">
