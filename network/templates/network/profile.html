@@ -19,6 +19,8 @@
                 <input type="submit" class="btn btn-primary" value="Follow">
             </form>
             {% endif %}
+        {% else %}
+            <a class="btn btn-primary" href="{% url 'edit-profile' %}"> Edit Profile </a>
         {% endif %}
     </div>
     <span> Joined on {{ required_user.join_date|date:"M d, Y" }} </span>

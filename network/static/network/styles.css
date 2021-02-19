@@ -145,3 +145,8 @@
 }
 
 /* end profile */
+
+
+.helptext {
+  display: none;
+}

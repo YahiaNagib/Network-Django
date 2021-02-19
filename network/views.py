@@ -10,6 +10,7 @@ from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.core.paginator import Paginator
 from .models import User, Post, Comment
+from .forms import UserUpdateForm
 
 
 def index(request):
@@ -106,6 +107,17 @@ def profile_view(request, id):
 
     return render(request, "network/profile.html", context)
 
+
+@login_required
+def edit_profile(request):
+    if request.method == "POST":
+        form = UserUpdateForm(request.POST, request.FILES, instance=request.user)
+        form.save()
+        messages.success(request, f'Your account has been updated!')
+        return redirect('index')
+
+    form = UserUpdateForm(instance=request.user)
+    return render(request, "network/edit-profile.html", {'form': form})
 
 @login_required
 def follow_user(request, id):
