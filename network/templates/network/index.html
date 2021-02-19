@@ -28,6 +28,7 @@
 
         <div class="post">
             <div class="post-owner">
+                <img class="user-image" src={{post.user.image.url}} alt="img">
                 <h2 class="post-username"> <a class="post-username" href="{% url 'profile' post.user.id %}">{{ post.user.username }}</a></h2>
                 <p class="user-email"> {{ post.user.email }}</p>
                 <p class="post-date">{{ post.date|date:"M d, f A" }}</p>

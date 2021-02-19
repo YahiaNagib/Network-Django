@@ -6,6 +6,8 @@ from time import strftime
 class User(AbstractUser):
     followings = models.ManyToManyField("self", related_name="followers", symmetrical=False, blank=True)
     join_date = models.DateTimeField(default=timezone.now)
+    image = models.ImageField(default="default.jpg", upload_to="profile_pics")
+
 
 class Post(models.Model):
     content = models.TextField()

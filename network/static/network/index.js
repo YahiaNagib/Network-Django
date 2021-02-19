@@ -1,7 +1,8 @@
 
-const editBtn = document.querySelectorAll(".edit-btn");
-
-editBtn.forEach(btn => btn.addEventListener("click", () => {
+// Select edit post buttons 
+const editBtns = document.querySelectorAll(".edit-btn");
+// when clicking an edit button, hide and display some contents of the post
+editBtns.forEach(btn => btn.addEventListener("click", () => {
 
     const postContent = btn.parentElement.querySelector(".post-content");
     const editForm = btn.parentElement.querySelector(".edit-form");
@@ -11,6 +12,8 @@ editBtn.forEach(btn => btn.addEventListener("click", () => {
 
 }));
 
+// Make a post request to the server when the post is submitted
+// to edit the post
 document.querySelectorAll(".edit-form").forEach(editForm => {
 
     editForm.onsubmit = function () {
@@ -42,10 +45,12 @@ document.querySelectorAll(".edit-form").forEach(editForm => {
     };
 });
 
+// make post request to the server on like or dislike a post
 document.querySelectorAll(".like-icon").forEach(likeBtn => {
 
     likeBtn.addEventListener("click", () => {
         const csrftoken = getCookie('csrftoken');
+        // To change the like icon
         likeBtn.classList.toggle("far");
         likeBtn.classList.toggle("fas");
         likeBtn.classList.toggle("liked");
@@ -69,7 +74,8 @@ document.querySelectorAll(".like-icon").forEach(likeBtn => {
 
 });
 
-
+// Copied from Django documentaion
+// used to return the csrf token for the forms
 function getCookie(name) {
     let cookieValue = null;
     if (document.cookie && document.cookie !== '') {
