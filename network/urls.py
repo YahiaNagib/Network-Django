@@ -18,7 +18,8 @@ urlpatterns = [
     path("logout", views.logout_view, name="logout"),
     path("register", views.register, name="register"),
     path("edit-profile", views.edit_profile, name="edit-profile"),
-
+    path("comment", views.add_comment, name="add-comment"),
+    
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

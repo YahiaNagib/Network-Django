@@ -89,7 +89,13 @@ document.querySelectorAll(".post-comment").forEach(btn => {
     });
 });
 
-
+// Comment form
+// To copy the content of the div to the hidden input field
+document.querySelectorAll(".add-comment-form").forEach(form => {
+    form.onsubmit = function() {
+        this.querySelector(".comment-content").value = this.querySelector(".add-comment-input").innerHTML;
+    };
+});
 
 // Copied from Django documentaion
 // used to return the csrf token for the forms

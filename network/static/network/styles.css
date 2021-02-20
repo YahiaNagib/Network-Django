@@ -113,7 +113,7 @@
 
 .add-comment {
   display: flex;
-  align-items: center;
+  /* align-items: center; */
 }
 
 .comments .user-image {
@@ -126,7 +126,10 @@
 }
 
 .add-comment-input {
-  border-radius: 100px;
+  height: auto;
+  border-radius: 10px;
+  display: inline-block;
+  /* max-width: 650px; */
 }
 
 /* end posts */

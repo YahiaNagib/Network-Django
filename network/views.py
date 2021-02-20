@@ -184,6 +184,15 @@ def like_post(request):
             likes_number = post.likes.all().count()
             return JsonResponse({"message": likes_number}, status=201)
 
+@login_required
+def add_comment(request):
+    if request.method == "POST":
+        post_id = request.POST["post-id"]
+        content = request.POST["comment-content"]
+        post = Post.objects.filter(id=post_id).first()
+        comment = Comment(content=content, post=post, user=request.user)
+        comment.save()
+        return redirect("index")
 
 def login_view(request):
     if request.method == "POST":

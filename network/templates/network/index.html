@@ -74,8 +74,12 @@
             <div class="comments mt-4">
                 <div class="add-comment">
                     <img class="user-image" src="{{ user.image.url }}" alt="user-img">
-                    <form class="add-comment-form" action="" method="POST">
-                        <input type="text" class="form-control add-comment-input">
+                    <form class="add-comment-form" action="{% url 'add-comment'  %}" method="POST">
+                        {% csrf_token %}
+                        <input type="text" hidden name="comment-content" class="comment-content">
+                        <input type="text" hidden name="post-id" value={{post.id}}>
+                        <div contenteditable="true" class="form-control add-comment-input"></div>
+                        <input type="submit" class="btn btn-primary mt-2" value="comment">
                     </form>
                 </div>
                 {% for comment in post.comments.all %}
