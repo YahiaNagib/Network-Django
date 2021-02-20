@@ -89,10 +89,44 @@
 
 .post-like {
   margin-bottom: 0;
+  margin-right: 20px;
 }
 
 .liked {
   color: red;
+}
+
+.post-social-actions {
+  display: flex;
+}
+
+/* Comments */
+
+.comments {
+  display: none;
+}
+
+.post-comment {
+  margin-bottom: 0;
+}
+
+
+.add-comment {
+  display: flex;
+  align-items: center;
+}
+
+.comments .user-image {
+  height: 30px;
+  width: 30px;
+}
+
+.add-comment-form {
+  flex: 1;
+}
+
+.add-comment-input {
+  border-radius: 100px;
 }
 
 /* end posts */

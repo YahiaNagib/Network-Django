@@ -52,20 +52,36 @@
                 <li class="edit-menu-item">Report</li>
             </ul>
             <p class="post-content mt-3">{{ post.content }}</p>
-            <p class="post-like">
-                <input class="post-id" name="id" value="{{post.id}}" hidden>
+            <div class="post-social-actions">
+                <p class="post-like">
+                    <input class="post-id" name="id" value="{{post.id}}" hidden>
 
-                {% if not user.is_authenticated %}
+                    {% if not user.is_authenticated %}
                     <i class="far fa-heart"></i>
-                {% else %}
+                    {% else %}
                     {%if user in post.likes.all%}
-                        <i class="fas fa-heart like-icon liked"></i>
+                    <i class="fas fa-heart like-icon liked"></i>
                     {%else%}
-                        <i class="far fa-heart like-icon"></i>
+                    <i class="far fa-heart like-icon"></i>
                     {%endif%}
-                {% endif %}
-                <span class="post-likes-number"> {{ post.likes.all.count }} </span>
-            </p>
+                    {% endif %}
+                    <span class="post-likes-number"> {{ post.likes.all.count }} </span>
+                </p>
+                <p class="post-comment">
+                    <span> {{ post.comments.all.count }} comments </span>
+                </p>
+            </div>
+            <div class="comments mt-4">
+                <div class="add-comment">
+                    <img class="user-image" src="{{ user.image.url }}" alt="user-img">
+                    <form class="add-comment-form" action="" method="POST">
+                        <input type="text" class="form-control add-comment-input">
+                    </form>
+                </div>
+                {% for comment in post.comments.all %}
+                
+                {% endfor %}
+            </div>
         </div>
         
         {% endfor %}

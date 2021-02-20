@@ -82,6 +82,12 @@ document.querySelectorAll(".edit-menu-btn").forEach(btn => {
 });
 
 
+// To show comments when clicking on the comment button
+document.querySelectorAll(".post-comment").forEach(btn => {
+    btn.addEventListener('click', function() {
+        btn.parentElement.parentElement.querySelector(".comments").style.display = "block";
+    });
+});
 
 
 
