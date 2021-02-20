@@ -132,6 +132,16 @@
   /* max-width: 650px; */
 }
 
+.comment {
+  display: flex;
+}
+
+.comment-view {
+  border-radius: 5px;
+  background-color: #f7f7f7;
+  flex: 1;
+  padding: 10px 0 0 15px;
+}
 /* end posts */
 
 /* edit-form */

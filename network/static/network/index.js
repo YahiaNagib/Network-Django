@@ -93,7 +93,7 @@ document.querySelectorAll(".post-comment").forEach(btn => {
 // To copy the content of the div to the hidden input field
 document.querySelectorAll(".add-comment-form").forEach(form => {
     form.onsubmit = function() {
-        this.querySelector(".comment-content").value = this.querySelector(".add-comment-input").innerHTML;
+        this.querySelector(".comment-content").value = this.querySelector(".add-comment-input").innerText;
     };
 });
 
